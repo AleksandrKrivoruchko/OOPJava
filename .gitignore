@@ -9,6 +9,8 @@
 */.idea/
 */*.iml
 */out/
+*/*.txt
+*/*/*.txt
 
 
 # Log file

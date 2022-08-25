@@ -26,4 +26,39 @@ public class PhoneBook {
             addContact(contact);
         }
     }
+
+    public boolean removeContact(Contact contact) {
+        if (contacts.contains(contact)) {
+            contacts.remove(contact);
+            return true;
+        }
+        return false;
+    }
+
+    public Contact searchByTelephone(String phone) {
+        for (Contact c : contacts) {
+            if(c.getTelephone().equals(phone)) {
+                return c;
+            }
+        }
+        return null;
+    }
+
+    public Contact searchByName(String name) {
+        for (Contact c : contacts) {
+            if (c.getFullName().equals(name)) {
+                return c;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        for (Contact c : contacts) {
+            sb.append(c.toString()).append("\n");
+        }
+        return sb.toString();
+    }
 }

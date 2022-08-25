@@ -31,4 +31,10 @@ public class Contact {
         return this.telephone.equals(c.getTelephone()) &&
                 this.fullName.equals(c.getFullName());
     }
+
+    @Override
+    public String toString() {
+        return String.format("%30s %25s",
+                fullName, telephone);
+    }
 }
