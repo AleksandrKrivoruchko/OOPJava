@@ -61,4 +61,15 @@ public class PhoneBook {
         }
         return sb.toString();
     }
+
+    @Override
+    public boolean equals(Object o) {
+        PhoneBook b = (PhoneBook) o;
+        for (Contact c : b.getContacts()) {
+            if (!contacts.contains(c)) {
+                return false;
+            }
+        }
+        return true;
+    }
 }

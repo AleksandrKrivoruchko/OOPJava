@@ -55,6 +55,8 @@ public class FileOutput implements OutputHelper {
             }
             tmpBook.updateContact(c);
         }
-        new FileOutput(fileName).write(tmpBook);
+        if (!tmpBook.equals(book)) {
+            new FileOutput(fileName).write(tmpBook);
+        }
     }
 }
