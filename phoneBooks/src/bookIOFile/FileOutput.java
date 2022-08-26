@@ -47,6 +47,9 @@ public class FileOutput implements OutputHelper {
         DataInputHelper fr = new FileInput(fileName);
         PhoneBook tmpBook = new PhoneBook();
         fr.read(tmpBook);
+        if (tmpBook.equals(book)) {
+            return;
+        }
         List<Contact> ib = book.getContacts();
         List<Contact> tb = tmpBook.getContacts();
         for (Contact c : ib) {
@@ -55,8 +58,6 @@ public class FileOutput implements OutputHelper {
             }
             tmpBook.updateContact(c);
         }
-        if (!tmpBook.equals(book)) {
-            new FileOutput(fileName).write(tmpBook);
-        }
+        new FileOutput(fileName).write(tmpBook);
     }
 }

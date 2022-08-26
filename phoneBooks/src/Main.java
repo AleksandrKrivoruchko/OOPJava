@@ -27,10 +27,16 @@ public class Main {
         if (book.searchByName(contact.getFullName()) != null) {
             book1.removeContact(contact);
         }
+        Contact contact4 = new Contact("Ивницкий Сергей Федорович",
+                "+7(988) 345-57-42");
+        book1.addContact(contact4);
         con.write(book1);
+
         if (book1.searchByTelephone(contact.getTelephone()) == null) {
             book1.updateContact(contact);
         }
         con.write(book1);
+
+        fw.updateFile(book1, "dataPhone.txt");
     }
 }

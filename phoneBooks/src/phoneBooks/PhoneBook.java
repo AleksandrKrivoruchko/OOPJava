@@ -65,7 +65,11 @@ public class PhoneBook {
     @Override
     public boolean equals(Object o) {
         PhoneBook b = (PhoneBook) o;
-        for (Contact c : b.getContacts()) {
+        List<Contact> bList = b.getContacts();
+        if (contacts.size() != bList.size()) {
+            return false;
+        }
+        for (Contact c : bList) {
             if (!contacts.contains(c)) {
                 return false;
             }
