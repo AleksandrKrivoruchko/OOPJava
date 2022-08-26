@@ -1,4 +1,5 @@
 import source.ComplexNumber;
+import source.RationalNumber;
 
 public class Main {
     public static void main(String[] args) {
@@ -9,5 +10,11 @@ public class Main {
         System.out.println(cn + " - " + cn1 + " = " + cn.sub(cn1));
         System.out.println(cn + " * " + cn1 + " = " + cn.mul(cn1));
         System.out.println(cn + " / " + cn1 + " = " + cn.div(cn1));
+        RationalNumber rn = new RationalNumber(2, 3);
+        System.out.println(rn);
+        RationalNumber rn1 = new RationalNumber(3, 2);
+        System.out.println(rn1);
+        int n = rn1.greatestCommonDivisor(56, 16);
+        System.out.println(n);
     }
 }
