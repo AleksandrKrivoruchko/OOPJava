@@ -36,7 +36,7 @@ public class RationalNumber implements SumRC<RationalNumber>, SubRC<RationalNumb
         }
         int gcd = t.greatestCommonDivisor(this.denominator, t.getDenominator());
         if (gcd == 1) {
-            int tmpN = this.num * t.getNum() + t.getNum() * this.denominator;
+            int tmpN = this.num * t.getDenominator() + t.getNum() * this.denominator;
             return new RationalNumber(tmpN, this.denominator * t.getDenominator());
         }
         int tmpN = t.getDenominator() / gcd * this.num + this.denominator / gcd * t.getNum();
@@ -61,12 +61,20 @@ public class RationalNumber implements SumRC<RationalNumber>, SubRC<RationalNumb
 
     @Override
     public String toString(){
+        if (denominator == 1) {
+            return String.format("%d", num);
+        }
         if (num <= denominator) {
-            return String.format("(%d/%d)", num, denominator);
+            int tmp = greatestCommonDivisor(num, denominator);
+            return String.format("(%d/%d)", num / tmp, denominator / tmp);
         }
         int n = num / denominator;
         int d = num % denominator;
-        return String.format("%d(%d/%d)", n, d, denominator);
+        if (d == 0) {
+            return String.format("%d", n);
+        }
+        int tmp = greatestCommonDivisor(denominator, d);
+        return String.format("%d(%d/%d)", n , d / tmp, denominator / tmp);
     }
 
     public int greatestCommonDivisor(int n, int d) {
