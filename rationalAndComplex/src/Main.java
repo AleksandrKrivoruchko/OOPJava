@@ -14,7 +14,7 @@ public class Main {
         System.out.println(rn);
         RationalNumber rn1 = new RationalNumber(3, 2);
         System.out.println(rn1);
-        int n = rn1.greatestCommonDivisor(56, 16);
+        int n = rn1.greatestCommonDivisor(5, 7);
         System.out.println(n);
     }
 }

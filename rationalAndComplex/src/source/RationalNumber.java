@@ -30,7 +30,18 @@ public class RationalNumber implements SumRC<RationalNumber>, SubRC<RationalNumb
 
     @Override
     public RationalNumber sum(RationalNumber t) {
-        return null;
+        if (this.denominator == t.denominator) {
+            int tmp = this.num + t.num;
+            return new RationalNumber(tmp, t.denominator);
+        }
+        int gcd = t.greatestCommonDivisor(this.denominator, t.getDenominator());
+        if (gcd == 1) {
+            int tmpN = this.num * t.getNum() + t.getNum() * this.denominator;
+            return new RationalNumber(tmpN, this.denominator * t.getDenominator());
+        }
+        int tmpN = t.getDenominator() / gcd * this.num + this.denominator / gcd * t.getNum();
+        int tmpD = (t.denominator / gcd) * (this.denominator / gcd);
+        return new RationalNumber(tmpN, tmpD);
     }
 
     @Override
@@ -70,5 +81,12 @@ public class RationalNumber implements SumRC<RationalNumber>, SubRC<RationalNumb
             }
         }
         return n + d;
+    }
+
+    public RationalNumber mulByInt(RationalNumber rn, int n) {
+        if (rn.denominator % n == 0) {
+            return new RationalNumber(rn.getNum(), rn.getDenominator() / n);
+        }
+        return new RationalNumber(rn.getNum() * n, rn.getDenominator());
     }
 }
