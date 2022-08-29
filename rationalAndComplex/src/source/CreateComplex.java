@@ -1,14 +1,13 @@
 package source;
 
-import interfaceRCNumber.CreateComplex;
-import interfaceRCNumber.InputNumber;
+import interfaceRCNumber.CreateNumber;
 
 import java.util.Scanner;
 
-public class InputComplex implements CreateComplex<ComplexNumber,Double> {
+public class CreateComplex implements CreateNumber<ComplexNumber, Double> {
     private Scanner scanner;
 
-    public InputComplex(Scanner scanner) {
+    public CreateComplex(Scanner scanner) {
         this.scanner = scanner;
     }
     @Override
