@@ -1,5 +1,6 @@
 import interfaceRCNumber.OperationsWithRC;
 import source.ComplexNumber;
+import source.InputComplex;
 import source.RationalNumber;
 import source.StartCalcs;
 
@@ -10,6 +11,10 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         StartCalcs calcs = new StartCalcs();
         calcs.setModeWork(scanner);
+        InputComplex ic = new InputComplex(scanner);
+        OperationsWithRC complex = ic.createNumber();
+        System.out.println(complex);
+        scanner.close();
         if (calcs.getModeWork() == 1) {
             OperationsWithRC cn = new ComplexNumber(-2, 3);
             System.out.println(cn);
