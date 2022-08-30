@@ -1,8 +1,8 @@
-package source;
+package sourceMenu;
 
 import java.util.Scanner;
 
-public class StartCalcs {
+public class StartMenu {
     final String startStr = """
             Для вычислений с комплекснымми числами введите 1
             Для вычислений с рациональными числами введите 2
@@ -20,7 +20,11 @@ public class StartCalcs {
             int tmp = scanner.nextInt();
             if (tmp == 1 || tmp == 2) {
                 modeWork = tmp;
+            } else {
+                modeWork = 0;
             }
+        } else {
+            modeWork = 0;
         }
         if (modeWork == 0) {
             System.exit(0);

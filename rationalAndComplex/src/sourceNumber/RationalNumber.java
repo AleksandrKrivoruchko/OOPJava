@@ -1,4 +1,4 @@
-package source;
+package sourceNumber;
 
 import interfaceRCNumber.*;
 
@@ -82,7 +82,7 @@ public class RationalNumber implements OperationsWithRC<RationalNumber> {
         if (denominator == 1) {
             return String.format("%d", num);
         }
-        if (Math.abs(num) <= Math.abs(denominator)) {
+        if (Math.abs(num) < Math.abs(denominator)) {
             int tmp = greatestCommonDivisor(num, denominator);
             return String.format("(%d/%d)", num / tmp, denominator / tmp);
         }

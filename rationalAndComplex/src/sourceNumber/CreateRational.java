@@ -1,4 +1,4 @@
-package source;
+package sourceNumber;
 
 import interfaceRCNumber.CreateNumber;
 
@@ -12,12 +12,12 @@ public class CreateRational implements CreateNumber<RationalNumber, Integer> {
     }
     @Override
     public RationalNumber createNumber() {
-        String numStr = "Введите числитель рационального числа";
-        String dStr = "Введите знаменатель рационального числа не равный 0";
+        String numStr = "Введите числитель, целое число";
+        String dStr = "Введите знаменатель, целое число не равное 0";
         int num = inputNumber(numStr);
         int d = inputNumber(dStr);
         while (d == 0) {
-            System.out.printf("%d - не может быть знаменателем!");
+            System.out.printf("%d - не может быть знаменателем!\n", d);
             d = inputNumber(dStr);
         }
         return new RationalNumber(num, d);
@@ -28,7 +28,7 @@ public class CreateRational implements CreateNumber<RationalNumber, Integer> {
         System.out.printf("%s: ", str);
         while (!scanner.hasNextInt()) {
             String tmp = scanner.next();
-            System.out.println("tmp - это не число");
+            System.out.printf("%s - это не целое число\n", tmp);
             System.out.printf("%s: ", str);
         }
         return scanner.nextInt();

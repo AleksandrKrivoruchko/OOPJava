@@ -1,4 +1,4 @@
-package source;
+package sourceNumber;
 
 import interfaceRCNumber.CreateNumber;
 
@@ -15,7 +15,7 @@ public class CreateComplex implements CreateNumber<ComplexNumber, Double> {
         System.out.printf("%s: ", str);
         while (!scanner.hasNextDouble()) {
             String tmp = scanner.next();
-            System.out.println("tmp - это не число");
+            System.out.printf("%s - это не число\n", tmp);
             System.out.printf("%s: ", str);
         }
         return scanner.nextDouble();
