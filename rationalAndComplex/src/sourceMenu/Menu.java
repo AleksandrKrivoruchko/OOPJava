@@ -3,12 +3,9 @@ package sourceMenu;
 import interfaceRCNumber.Calc;
 import interfaceRCNumber.CreateNumber;
 import interfaceRCNumber.OperationsWithRC;
-import sourceNumber.ComplexNumber;
 import sourceNumber.CreateComplex;
 import sourceNumber.CreateRational;
-import sourceNumber.RationalNumber;
 
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Menu implements Calc<OperationsWithRC> {
