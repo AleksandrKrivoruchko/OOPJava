@@ -7,6 +7,8 @@ import sourceNumber.CreateComplex;
 import sourceNumber.CreateRational;
 
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Menu implements Calc<OperationsWithRC> {
     private Scanner scanner;
@@ -17,6 +19,8 @@ public class Menu implements Calc<OperationsWithRC> {
     }
 
     public Menu(Scanner scanner) {
+        Logger log = Logger.getLogger(Menu.class.getName());
+        log.log(Level.INFO, "log message");
         this.scanner = scanner;
         this.menu = new StartMenu();
     }
@@ -38,10 +42,9 @@ public class Menu implements Calc<OperationsWithRC> {
     private void expression(CreateNumber c) {
         String sign;
         OperationsWithRC a = (OperationsWithRC) c.createNumber();
-        while (menu.getModeWork() != 0) {
+        while (true) {
             sign = getOperationSing();
             if (sign.equalsIgnoreCase("c")) {
-//                menu.setModeWork(scanner);
                 return;
             }
             OperationsWithRC b = (OperationsWithRC) c.createNumber();
