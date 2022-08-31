@@ -1,20 +1,25 @@
-import source.ComplexNumber;
-import source.RationalNumber;
+import sourceMenu.Menu;
+
+import java.util.Scanner;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
+
+import static java.util.logging.Level.INFO;
 
 public class Main {
     public static void main(String[] args) {
-        ComplexNumber cn = new ComplexNumber(2, 3);
-        System.out.println(cn);
-        ComplexNumber cn1 = new ComplexNumber(3, -2);
-        System.out.println(cn + " + " + cn1 + " = " + cn.sum(cn1));
-        System.out.println(cn + " - " + cn1 + " = " + cn.sub(cn1));
-        System.out.println(cn + " * " + cn1 + " = " + cn.mul(cn1));
-        System.out.println(cn + " / " + cn1 + " = " + cn.div(cn1));
-        RationalNumber rn = new RationalNumber(2, 3);
-        System.out.println(rn);
-        RationalNumber rn1 = new RationalNumber(3, 2);
-        System.out.println(rn1);
-        int n = rn1.greatestCommonDivisor(56, 16);
-        System.out.println(n);
+        try {
+            LogManager.getLogManager().readConfiguration(Main.class
+                    .getResourceAsStream("logging.properties"));
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        Logger log = Logger.getLogger(Main.class.getName());
+        log.log(INFO, "log message");
+        Scanner scanner = new Scanner(System.in);
+        Menu menu = new Menu(scanner);
+        menu.start();
+        scanner.close();
+
     }
 }

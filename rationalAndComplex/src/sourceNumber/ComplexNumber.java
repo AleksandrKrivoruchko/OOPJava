@@ -1,9 +1,8 @@
-package source;
+package sourceNumber;
 
 import interfaceRCNumber.*;
 
-public class ComplexNumber implements SumRC<ComplexNumber>, SubRC<ComplexNumber>,
-        MulRC<ComplexNumber>, DivRC<ComplexNumber> {
+public class ComplexNumber implements OperationsWithRC<ComplexNumber> {
     private double real;
     private double imag;
 
