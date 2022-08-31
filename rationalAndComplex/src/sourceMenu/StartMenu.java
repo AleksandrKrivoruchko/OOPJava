@@ -1,6 +1,9 @@
 package sourceMenu;
 
 import java.util.Scanner;
+import java.util.logging.Logger;
+
+import static java.util.logging.Level.INFO;
 
 public class StartMenu {
     final String startStr = """
@@ -9,6 +12,7 @@ public class StartMenu {
             Для выхода из программы введите q
             """;
     private int modeWork = 0;
+    private Logger log = Logger.getLogger(Menu.class.getName());
 
     public int getModeWork() {
         return modeWork;
@@ -27,6 +31,7 @@ public class StartMenu {
             modeWork = 0;
         }
         if (modeWork == 0) {
+            log.log(INFO, "Exiting the program");
             System.exit(0);
         }
     }

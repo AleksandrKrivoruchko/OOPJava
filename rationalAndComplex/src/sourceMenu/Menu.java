@@ -13,28 +13,31 @@ import java.util.logging.Logger;
 public class Menu implements Calc<OperationsWithRC> {
     private Scanner scanner;
     private StartMenu menu;
+    private Logger log = Logger.getLogger(Menu.class.getName());
 
     public Scanner getScanner() {
         return scanner;
     }
 
     public Menu(Scanner scanner) {
-        Logger log = Logger.getLogger(Menu.class.getName());
-        log.log(Level.INFO, "log message");
         this.scanner = scanner;
         this.menu = new StartMenu();
     }
 
     public void start() {
+        log.log(Level.INFO, "Start choice");
         menu.setModeWork(scanner);
         while (menu.getModeWork() != 0) {
             if (menu.getModeWork() == 1) {
                 CreateComplex c = new CreateComplex(scanner);
+                log.log(Level.INFO, "ComplexNumber");
                 expression(c);
             } else {
                 CreateRational r = new CreateRational(scanner);
+                log.log(Level.INFO, "RationalNumber");
                 expression(r);
             }
+            log.log(Level.INFO, "Return to the Start choice");
             menu.setModeWork(scanner);
         }
     }
@@ -49,6 +52,8 @@ public class Menu implements Calc<OperationsWithRC> {
             }
             OperationsWithRC b = (OperationsWithRC) c.createNumber();
             var t = calculation(a, b, sign);
+            String tmpStr = String.format("%s %s %s = %s", a, sign, b, t);
+            log.log(Level.INFO, tmpStr);
             System.out.println(a + " " + sign + " " + b
                     + " = " + t);
             a = t;
@@ -64,8 +69,6 @@ public class Menu implements Calc<OperationsWithRC> {
             b = tmp.equals("+") || tmp.equals("-")
                     || tmp.equals("*") || tmp.equals("/")
                     || tmp.equalsIgnoreCase("c");
-//            System.out.printf("Вы ввели %s\n", tmp);
-
         }
         return tmp;
     }
