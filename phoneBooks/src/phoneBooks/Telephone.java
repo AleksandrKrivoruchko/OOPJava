@@ -27,8 +27,8 @@ public class Telephone {
     }
 
     public boolean equals(Object o) {
-        List<String> other = (List<String>) o;
-        for (String s : other) {
+        Telephone other = (Telephone) o;
+        for (String s : other.getTelephones()) {
             if (!isTelephone(s)) {
                 return false;
             }

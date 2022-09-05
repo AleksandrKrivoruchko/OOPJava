@@ -31,7 +31,7 @@ public class FileOutput implements OutputHelper {
             FileWriter writer = new FileWriter(file);
             for (Contact c : book.getContacts()) {
                 writer.write(String.format("%s:%s\n",
-                        c.getFullName(), c.getTelephones()));
+                        c.getFullName(), c.getPhone()));
             }
 
             writer.flush();

@@ -13,15 +13,15 @@ public class Main {
                 "+7(952) 345-97-32");
         Contact contact2 = new Contact("Ивницкий Сергей Федорович",
                 "+7(988) 345-57-32");
-        contact2.addTelephone("+7(919) 546 34 45");
+        contact2.getPhone().addTelephone("+7(919) 546 34 45");
         PhoneBook book = new PhoneBook();
         book.addContact(contact);
         book.addContact(contact1);
         book.addContact(contact2);
         ConsoleOutput con = new ConsoleOutput();
         con.write(book);
-//        FileOutput fw = new FileOutput("dataPhone.txt");
-//        fw.write(book);
+        FileOutput fw = new FileOutput("dataPhone.txt");
+        fw.write(book);
 //        DataInputHelper fr = new FileInput("dataPhone.txt");
 //        PhoneBook book1 = new PhoneBook();
 //        fr.read(book1);
