@@ -1,12 +1,11 @@
 package phoneBooks;
 
-public class Contact {
+public class Contact extends Telephone{
     private String fullName;
-    private String telephone;
 
     public Contact(String fullName, String telephone) {
+        super(telephone);
         this.fullName = fullName;
-        this.telephone = telephone;
     }
 
     public String getFullName() {
@@ -17,24 +16,16 @@ public class Contact {
         this.fullName = fullName;
     }
 
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
-
     @Override
     public boolean equals(Object o) {
         Contact c = (Contact) o;
-        return this.telephone.equals(c.getTelephone()) &&
+        return  super.equals(c.getTelephones())&&
                 this.fullName.equals(c.getFullName());
     }
 
     @Override
     public String toString() {
-        return String.format("%30s %25s",
-                fullName, telephone);
+        return String.format("%30s\n%s",
+                fullName, super.toString());
     }
 }
