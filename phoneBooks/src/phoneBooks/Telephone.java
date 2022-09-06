@@ -10,6 +10,8 @@ public class Telephone {
         telephones.add(t);
     }
 
+    public Telephone() {}
+
     public List<String> getTelephones() {
         return telephones;
     }
@@ -26,6 +28,19 @@ public class Telephone {
         return telephones.contains(t);
     }
 
+    public int phoneCount() {
+        return telephones.size();
+    }
+
+    public boolean removePhone(String t) {
+        if (telephones.contains(t)) {
+            telephones.remove(t);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
     public boolean equals(Object o) {
         Telephone other = (Telephone) o;
         for (String s : other.getTelephones()) {
@@ -36,11 +51,21 @@ public class Telephone {
         return true;
     }
 
+    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         for (String s : telephones) {
             sb.append(String.format("%30s",s)).append("\n");
         }
+        return sb.toString();
+    }
+
+    public String phonesToFile() {
+        StringBuilder sb = new StringBuilder();
+        for (String s : telephones) {
+            sb.append(s).append(";");
+        }
+        sb.deleteCharAt(sb.length() - 1);
         return sb.toString();
     }
 }
