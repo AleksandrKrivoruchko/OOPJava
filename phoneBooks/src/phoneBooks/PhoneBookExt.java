@@ -41,8 +41,8 @@ public class PhoneBookExt extends PhoneBook{
                     addContact(tmp);
                 }
             }
-            MatchForPhone.writeError(tmp, contact,
-                    "Контакт уже есть!");
+//            MatchForPhone.writeError(tmp, contact,
+//                    "Контакт уже есть!");
         }
     }
 
