@@ -45,14 +45,15 @@ public class Main {
         con.write(book1);
         System.out.println("--------------------------------------------");
         contact.getPhone().addTelephone("+7(919) 546 34 45");
-//        System.out.println(contact);
+
         book1.addContact(contact);
         System.out.println("--------------------------------------------");
+        book1.removeContact(contact1);
         con.write(book1);
         System.out.println("--------------------------------------------");
-        if (book1.searchByTelephone(contact.getPhone()
+        if (book1.searchByTelephone(contact1.getPhone()
                 .getTelephones().get(0)) == null) {
-            book1.updateContact(contact);
+            book1.updateContact(contact1);
         }
         con.write(book1);
 
