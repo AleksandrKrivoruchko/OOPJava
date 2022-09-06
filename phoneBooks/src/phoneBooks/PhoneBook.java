@@ -37,7 +37,7 @@ public class PhoneBook {
 
     public Contact searchByTelephone(String phone) {
         for (Contact c : contacts) {
-            if(c.getTelephone().equals(phone)) {
+            if(c.getPhone().isTelephone(phone)) {
                 return c;
             }
         }

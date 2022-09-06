@@ -34,7 +34,13 @@ public class FileInput implements DataInputHelper {
         }
         for (String s : phones) {
             String[] tmp = s.split(":");
-            Contact c = new Contact(tmp[0], tmp[1]);
+            String[] tmpPhone = tmp[1].split(";");
+            Contact c = new Contact(tmp[0], tmpPhone[0]);
+            if (tmpPhone.length > 1) {
+                for (int i = 1; i <tmpPhone.length; i++) {
+                    c.getPhone().addTelephone(tmpPhone[i]);
+                }
+            }
             book.updateContact(c);
         }
     }

@@ -2,11 +2,16 @@ package phoneBooks;
 
 public class Contact {
     private String fullName;
-    private String telephone;
+
+    private Telephone phone;
 
     public Contact(String fullName, String telephone) {
         this.fullName = fullName;
-        this.telephone = telephone;
+        phone = new Telephone(telephone);
+    }
+
+    public Telephone getPhone() {
+        return phone;
     }
 
     public String getFullName() {
@@ -17,24 +22,16 @@ public class Contact {
         this.fullName = fullName;
     }
 
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
-
     @Override
     public boolean equals(Object o) {
         Contact c = (Contact) o;
-        return this.telephone.equals(c.getTelephone()) &&
+        return  phone.equals(c.phone)&&
                 this.fullName.equals(c.getFullName());
     }
 
     @Override
     public String toString() {
-        return String.format("%30s %25s",
-                fullName, telephone);
+        return String.format("%30s\n%s",
+                fullName, phone);
     }
 }
