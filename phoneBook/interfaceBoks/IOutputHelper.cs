@@ -1,7 +1,7 @@
 namespace phoneBook.interfaceBoks
 {
-    public interface IOutputHelper
+    public interface IOutputHelper : IDataOutputHelper
     {
-         
+
     }
 }

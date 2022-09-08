@@ -13,6 +13,10 @@ namespace phoneBook.bookIOFile
 
         public void read(IPhoneBook book)
         {
+            if (!File.Exists(file))
+            {
+                return;
+            }
             string[] strBook = File.ReadAllLines(file);
             foreach (var item in strBook)
             {
