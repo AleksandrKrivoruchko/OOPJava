@@ -1,6 +1,7 @@
 ﻿using static System.Console;
 using phoneBook.phoneBook;
 using phoneBook.interfaceBoks;
+using phoneBook.bookIOFile;
 
 Telephone t = new Telephone("+7(919) 345-46-54");
 t.AddTelephone("+7(908) 345-67-25");
@@ -19,6 +20,12 @@ WriteLine(phoneBook);
 WriteLine("------------------------------------------");
 WriteLine(((PhoneBookExt)phoneBook).SearchByTelephone("+7(932) 654-34-97"));
 WriteLine("------------------------------------------");
-WriteLine(ct.Phone.AddTelephone("+7(950) 988-34-56"));
-WriteLine(ct);
-phoneBook.Add(ct);
+// WriteLine(ct.Phone.AddTelephone("+7(950) 988-34-56"));
+WriteLine(phoneBook);
+IDataOutputHelper fw = new PhoneFileOutput("bookPhone.txt");
+fw.write(phoneBook);
+IDataInputHelper fr = new PhoneFileInput("bookPhone.txt");
+IPhoneBook pb = new PhoneBookExt();
+fr.read(pb);
+WriteLine("****************************************************");
+WriteLine(pb);

@@ -9,5 +9,6 @@ namespace phoneBook.interfaceBoks
         bool Update(Contact c);
         Contact? SearchByTelephone(string t);
         Contact? SearchByName(string name);
+        string ToFile();
     }
 }

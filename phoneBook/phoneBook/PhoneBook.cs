@@ -96,5 +96,15 @@ namespace phoneBook.phoneBook
             return str;
         }
 
+        public string ToFile()
+        {
+            string str = string.Empty;
+            foreach (Contact c in contacts)
+            {
+                str += c.FullName + ":" + c.Phone.PhonesToFile() + "\n";
+            }
+            return str;
+        }
+
     }
 }
