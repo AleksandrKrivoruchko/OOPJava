@@ -43,7 +43,7 @@ namespace phoneBook.phoneBook
 
         public override string ToString()
         {
-            return String.Format("{0:30}\n{1}",
+            return String.Format("{0}\n{1}",
                                  fullName, phone);
         }
     }

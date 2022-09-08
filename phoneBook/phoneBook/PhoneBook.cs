@@ -44,8 +44,54 @@ namespace phoneBook.phoneBook
             return null;
         }
 
+        public Contact? SearchByName(string name)
+        {
+            foreach (Contact item in contacts)
+            {
+                if (item.FullName.Equals(name))
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
 
+        public override bool Equals(object? obj)
+        {
+            if (obj != null && this.GetType()
+                .Equals(obj.GetType()))
+            {
+                PhoneBook pB = (PhoneBook)obj;
+                foreach (Contact c in pB.Contacts)
+                {
+                    if (!contacts.Contains(c))
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
 
+        public override int GetHashCode()
+        {
+            int res = 0;
+            foreach (Contact item in contacts)
+            {
+                res += item.GetHashCode();
+            }
+            return res;
+        }
+
+        public override string ToString()
+        {
+            string str = string.Empty;
+            foreach (Contact item in contacts)
+            {
+                str += item + "\n";
+            }
+            return str;
+        }
 
     }
 }

@@ -88,7 +88,7 @@ namespace phoneBook.phoneBook
             string str = string.Empty;
             foreach (string s in telephones)
             {
-                str += String.Format("тел. {0:30}\n", s);
+                str += String.Format("тел. {0}\n", s);
             }
             return str;
         }
