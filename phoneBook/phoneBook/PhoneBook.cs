@@ -1,6 +1,8 @@
+using phoneBook.interfaceBoks;
+
 namespace phoneBook.phoneBook
 {
-    public class PhoneBook
+    public class PhoneBook : IPhoneBook
     {
         private List<Contact> contacts = new List<Contact>();
         public List<Contact> Contacts
@@ -8,7 +10,7 @@ namespace phoneBook.phoneBook
             get => contacts;
         }
 
-        public bool Add(Contact contact)
+        public virtual bool Add(Contact contact)
         {
             if (!contacts.Contains(contact))
             {
@@ -27,7 +29,7 @@ namespace phoneBook.phoneBook
             return false;
         }
 
-        public bool Remove(Contact contact)
+        public virtual bool Remove(Contact contact)
         {
             return contacts.Remove(contact);
         }
@@ -66,6 +68,7 @@ namespace phoneBook.phoneBook
                 {
                     if (!contacts.Contains(c))
                     {
+                        Console.WriteLine("-----3");
                         return false;
                     }
                 }

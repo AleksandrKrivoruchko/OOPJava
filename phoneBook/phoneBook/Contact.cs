@@ -29,8 +29,8 @@ namespace phoneBook.phoneBook
                 .Equals(obj.GetType()))
             {
                 Contact c = (Contact)obj;
-                return phone!.Equals(c)
-                       && fullName!.Equals(c.FullName);
+                return phone!.Equals(c.Phone)
+                   && fullName!.Equals(c.FullName);
             }
             return false;
         }
