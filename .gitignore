@@ -11,6 +11,9 @@
 */out/
 */*.txt
 */*/*.txt
+*/bin/
+*/obj/
+.vscode/
 
 
 # Log file
