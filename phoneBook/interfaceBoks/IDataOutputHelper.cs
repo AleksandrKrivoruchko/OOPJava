@@ -1,7 +1,7 @@
 namespace phoneBook.interfaceBoks
 {
-    public interface IDataOutputHelper
+    public interface IDataOutputHelper<T>
     {
-        void write(IPhoneBook book);
+        void write(T t);
     }
 }

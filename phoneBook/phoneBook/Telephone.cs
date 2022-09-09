@@ -1,5 +1,4 @@
-using System;
-using System.Collections.Generic;
+using phoneBook.bookIOFile;
 
 namespace phoneBook.phoneBook
 {
@@ -22,10 +21,16 @@ namespace phoneBook.phoneBook
         {
             if (telephones.Contains(t))
             {
+                List<string> strList = new List<string>();
+                strList.Add($"тел. {t} уже есть!");
+                ErrorConsole.Message(strList);
                 return false;
             }
-            telephones.Add(t);
-            return true;
+            else
+            {
+                telephones.Add(t);
+                return true;
+            }
         }
 
         public bool RemovePhone(string t)

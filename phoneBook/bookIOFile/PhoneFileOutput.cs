@@ -3,7 +3,7 @@ using phoneBook.interfaceBoks;
 
 namespace phoneBook.bookIOFile
 {
-    public class PhoneFileOutput : IDataOutputHelper
+    public class PhoneFileOutput : IDataOutputHelper<IPhoneBook>
     {
         private string file;
 

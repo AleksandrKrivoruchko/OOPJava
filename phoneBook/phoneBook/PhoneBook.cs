@@ -22,9 +22,27 @@ namespace phoneBook.phoneBook
 
         public bool Update(Contact contact)
         {
-            if (contacts.Remove(contact))
+            Contact? c = SearchByName(contact.FullName);
+            if (c != null
+                && !c.Equals(contact)
+                && IsLooksLike(c, contact))
             {
-                return this.Add(contact);
+                if (Remove(c))
+                {
+                    return Add(contact);
+                }
+            }
+            return false;
+        }
+
+        private bool IsLooksLike(Contact c1, Contact c2)
+        {
+            foreach (string s in c1.Phone.Telephones)
+            {
+                if (c2.Phone.IsPhone(s))
+                {
+                    return true;
+                }
             }
             return false;
         }

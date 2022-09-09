@@ -1,4 +1,5 @@
 using System.IO;
+using System.Collections.Generic;
 
 using phoneBook.interfaceBoks;
 using phoneBook.phoneBook;
@@ -15,6 +16,9 @@ namespace phoneBook.bookIOFile
         {
             if (!File.Exists(file))
             {
+                List<string> strList = new List<string>();
+                strList.Add("Нет такого файла " + file);
+                ErrorConsole.Message(strList);
                 return;
             }
             string[] strBook = File.ReadAllLines(file);

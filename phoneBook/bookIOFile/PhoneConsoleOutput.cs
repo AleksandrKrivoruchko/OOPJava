@@ -1,13 +1,12 @@
-using System.IO;
 using phoneBook.interfaceBoks;
 
 namespace phoneBook.bookIOFile
 {
-    public class PhoneConsoleOutput : IDataOutputHelper
+    public class PhoneConsoleOutput : IDataOutputHelper<string>
     {
-        public void write(IPhoneBook book)
+        public void write(string book)
         {
-
+            Console.WriteLine(book);
         }
     }
 }
