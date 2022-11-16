@@ -1,7 +1,7 @@
 package methodsWithArrays;
 
 public class ArraysDifference {
-    public int[] differenceOfElements(int[] arr1, int[] arr2) {
+    public int[] differenceOfElements(int[] arr1, int[] arr2) throws RuntimeException {
         if (!isNotNull(arr1, arr2)) {
             throw new RuntimeException("Методу нельзя передавать null!");
         }
