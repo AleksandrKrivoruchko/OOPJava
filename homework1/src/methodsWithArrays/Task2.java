@@ -11,7 +11,7 @@ public class Task2 {
         int[] arr = null;
         try {
             arr = ad.differenceOfElements(arr1, arr2);
-        } catch (Exception e) {
+        } catch (RuntimeException e) {
             System.err.println(e.getMessage());
         }
         if (arr != null) {
