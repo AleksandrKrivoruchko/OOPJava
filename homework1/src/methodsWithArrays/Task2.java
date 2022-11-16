@@ -1,19 +1,21 @@
 package methodsWithArrays;
 
 public class Task2 {
-    public int[] differenceOfElements(int[] arr1, int[] arr2) {
-        int len1 = arr1.length;
-        int len2 = arr2.length;
-        int len;
-        if (len1 == len2) {
-            len = len1;
-        } else {
-            len = len1 > len2 ? len2 : len1;
+    public void run() {
+        ArraysDifference ad = new ArraysDifference();
+        NewArray nArray = new NewArray();
+        int[] arr1 = nArray.createArray(10, -10, 10);
+        System.out.println(nArray.arrayToStirng(arr1));
+        int[] arr2 = nArray.createArray(5, -10, 10);
+        System.out.println(nArray.arrayToStirng(arr2));
+        int[] arr = null;
+        try {
+            arr = ad.differenceOfElements(arr1, arr2);
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
         }
-        int[] res = new int[len];
-        for(int i = 0; i < len; i++) {
-            res[i] = arr1[i] - arr2[i];
+        if (arr != null) {
+            System.out.println(nArray.arrayToStirng(arr));
         }
-        return res;
     }
 }
