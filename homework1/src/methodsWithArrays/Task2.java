@@ -5,9 +5,9 @@ public class Task2 {
         ArraysDifference ad = new ArraysDifference();
         NewArray nArray = new NewArray();
         int[] arr1 = nArray.createArray(10, -10, 10);
-        System.out.println(nArray.arrayToStirng(arr1));
+        System.out.println(nArray.arrayToString(arr1));
         int[] arr2 = nArray.createArray(5, -10, 10);
-        System.out.println(nArray.arrayToStirng(arr2));
+        System.out.println(nArray.arrayToString(arr2));
         int[] arr = null;
         try {
             arr = ad.differenceOfElements(arr1, arr2);
@@ -15,7 +15,7 @@ public class Task2 {
             System.err.println(e.getMessage());
         }
         if (arr != null) {
-            System.out.println(nArray.arrayToStirng(arr));
+            System.out.println(nArray.arrayToString(arr));
         }
     }
 }

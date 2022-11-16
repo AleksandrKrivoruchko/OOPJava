@@ -3,7 +3,7 @@ package methodsWithArrays;
 public class ArraysDivisionElenets {
     private ArraysDifference ad = new ArraysDifference();
 
-    public int[] div(int[] arr1, int[] arr2) {
+    public int[] div(int[] arr1, int[] arr2) throws RuntimeException {
         if (!ad.isNotNull(arr1, arr2)) {
             throw new RuntimeException("Методу нельзя передавать null!");
         }

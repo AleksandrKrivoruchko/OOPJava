@@ -12,7 +12,7 @@ public class NewArray {
         return arr;
     }
 
-    public String arrayToStirng(int[] arr) {
+    public String arrayToString(int[] arr) {
         if (arr == null) {
             return "null";
         }
