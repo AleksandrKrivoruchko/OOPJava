@@ -14,14 +14,14 @@ public class RunApplication {
         try {
             m3.throwException();
         } catch (RuntimeException e) {
-            System.err.println(e.getMessage());
             e.printStackTrace();
         }
 
         try {
-            System.out.println(m2.sumArray(new int[]{1, 2, 3}));
+            System.out.println(m2.sumArray(new int[] { 1, 2, 3 }));
         } catch (ArrayIndexOutOfBoundsException e) {
             e.printStackTrace();
         }
+        System.out.println();
     }
 }

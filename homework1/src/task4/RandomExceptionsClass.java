@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.LinkedList;
 
 public class RandomExceptionsClass {
-    public static void main(String[] args) throws IOException {
+    public static void run() throws IOException {
         callMethod6("");
         ArrayList<String> stringArraysList = null;
         try {
