@@ -1,6 +1,7 @@
 package task4;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,13 +10,30 @@ import java.util.LinkedList;
 public class RandomExceptionsClass {
     public static void main(String[] args) throws IOException {
         callMethod6("");
-        ArrayList<String> stringArraysList = (ArrayList<String>) callMethod1();
+        ArrayList<String> stringArraysList = null;
+        try {
+            stringArraysList = (ArrayList<String>) callMethod1();
+
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+
         int a = 10, b = 0;
         callMethod6("");
-        int div = callMethod2(a, b);
-        System.out.println(div);
+        try {
+            int div = callMethod2(a, b);
+            System.out.println(div);
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+
         callMethod6("");
-        callMethod3(stringArraysList);
+        try {
+            callMethod3(stringArraysList);
+        } catch (StackOverflowError e) {
+            System.out.println(e.toString());
+        }
+
     }
 
     private static void callMethod6(String s) {
@@ -24,7 +42,7 @@ public class RandomExceptionsClass {
 
     private static void callMethod3(ArrayList<String> stringArraysList) {
         callMethod6("");
-        callMethod3(stringArraysList);
+        // callMethod3(stringArraysList);
     }
 
     private static Collection<String> callMethod1() throws IOException {
