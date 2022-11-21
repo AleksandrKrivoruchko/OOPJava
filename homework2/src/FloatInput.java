@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 public class FloatInput {
-    public float inputFloat() {
-        Scanner sc = new Scanner(System.in);
+    public float inputFloat(Scanner sc) {
+        // Scanner sc = new Scanner(System.in);
         String msg = "Введите дробное число:";
 
         printMessage(msg);
@@ -13,8 +13,6 @@ public class FloatInput {
             printMessage(msg);
         }
         f = sc.nextFloat();
-
-        sc.close();
         return f;
     }
 
