@@ -12,13 +12,16 @@ public class Main {
         SplitInputString sis = new SplitInputString(personData);
         List<String> ls = sis.getLs();
         CheckData cd = new CheckData();
-        if(cd.checkCountStrings(ls) > 0) {
+        int checkCount = cd.checkCountStrings(ls);
+        if (checkCount > 0) {
             System.out.println("Вы ввели слишком много данных");
             System.out.println(ls);
         }
-        if(cd.checkCountStrings(ls) < 0) {
+        if (checkCount < 0) {
             System.out.println("Вы ввели мало данных");
             System.out.println(ls);
         }
+        cd.fillLsPersonData(ls);
+        System.out.println(cd.getLsPersonData());
     }
 }

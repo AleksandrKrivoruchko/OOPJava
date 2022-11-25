@@ -1,11 +1,19 @@
 package personalData;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CheckData {
     private final int template = 6;
     private final int lengthGender = 1;
     private final int lengthDate = 3;
+
+    List<String> lsPersonData = new ArrayList<>();
+
+    public List<String> getLsPersonData() {
+        return lsPersonData;
+    }
+
     public int checkCountStrings(List<String> ls) {
         return Integer.compare(ls.size(), template);
     }
@@ -61,5 +69,34 @@ public class CheckData {
         return true;
     }
 
+    public void fillLsPersonData(List<String> ls) {
+       if (removeElement(ls, findGender(ls))) {
+           if(removeElement(ls, findPhone(ls))) {
+               removeElement(ls, findBirthday(ls));
+           }
+       }
+       for (String s : ls) {
+           lsPersonData.add(s);
+       }
+       cleanLsPersonData();
+    }
 
+    private boolean removeElement(List<String> ls, String str) {
+        System.out.println(str);
+        if(str == null) {
+            return false;
+        }
+        lsPersonData.add(str);
+        ls.remove(str);
+        return true;
+    }
+
+    public void cleanLsPersonData() {
+        for (int i = 0; i < lsPersonData.size(); i++) {
+           String s = lsPersonData.get(i);
+           if(s == null || s.isEmpty()) {
+               lsPersonData.remove(i);
+           }
+        }
+    }
 }
