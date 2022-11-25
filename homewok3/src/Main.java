@@ -1,4 +1,5 @@
 import personalData.CheckData;
+import personalData.SplitInputString;
 
 import java.util.List;
 import java.util.Scanner;
@@ -8,7 +9,8 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите Фамилию Имя Отчество дату рождения номер телефона пол");
         String personData = sc.nextLine();
-        List<String> ls = List.of(personData.strip().split(" "));
+        SplitInputString sis = new SplitInputString(personData);
+        List<String> ls = sis.getLs();
         CheckData cd = new CheckData();
         if(cd.checkCountStrings(ls) > 0) {
             System.out.println("Вы ввели слишком много данных");
