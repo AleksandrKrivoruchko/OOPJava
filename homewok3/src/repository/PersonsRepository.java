@@ -11,4 +11,8 @@ public class PersonsRepository {
     public List<Person> getListPersons() {
         return listPersons;
     }
+
+    public void addPerson(Person person) {
+        listPersons.add(person);
+    }
 }
