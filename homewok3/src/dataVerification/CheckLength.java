@@ -12,10 +12,10 @@ public class CheckLength  implements CheckData{
     }
 
     private void SplitString(String str) {
-        String[] strArray = str.trim().split(" ");
+        String[] strArray = str.trim().replace("\t", " ").split(" ");
         for (int i = 0; i < strArray.length; i++) {
             String s = strArray[i].trim();
-//            System.out.println(s);
+            System.out.println(s);
             if (s == " " || s.isEmpty()) {
                 continue;
             }

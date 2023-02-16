@@ -12,7 +12,10 @@ public class PersonsRepository {
         return listPersons;
     }
 
-    public void addPerson(Person person) {
+    public void add(Person person) {
         listPersons.add(person);
+    }
+    public void delete(Person person) {
+        listPersons.remove(person);
     }
 }

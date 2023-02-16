@@ -102,7 +102,7 @@ public class CheckInputData {
         if(pr == null) {
             pr = new PersonsRepository();
         }
-        pr.addPerson(p);
+        pr.add(p);
         return true;
     }
 }
