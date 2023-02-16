@@ -1,5 +1,5 @@
 package userInterface;
 
-public interface IInput {
-    String input();
+public interface IInput<T> {
+    String input(T t);
 }
